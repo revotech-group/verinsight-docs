@@ -1,4 +1,4 @@
-# VerInsight — Verification Ingestion API Contract (Simplified)
+# VerInsight — Verification Ingestion API Contract
 
 **Version:** 1.0  
 **Date:** February 2026  

@@ -132,3 +132,15 @@ Returned when a `source_verification_id` already exists with a different payload
   }
 }
 ```
+### 4.3 Authentication Error (401)
+
+```json
+{
+  "error": {
+    "code": "invalid_credentials",
+    "message": "Invalid or expired token",
+    "type": "authentication_error"
+  }
+}
+
+```

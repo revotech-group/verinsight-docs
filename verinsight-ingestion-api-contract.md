@@ -132,7 +132,8 @@ Returned when a `source_verification_id` already exists with a different payload
   }
 }
 ```
-### 4.3 Authentication Error (401)
+
+### 4.4 Authentication Error (401)
 
 ```json
 {

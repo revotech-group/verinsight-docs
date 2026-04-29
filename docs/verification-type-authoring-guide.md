@@ -83,8 +83,8 @@ A verification type document has the following top-level fields. All are platfor
 | `payload_schema` | object | Yes | JSON Schema describing the raw payload. See §4. |
 | `render_schema` | object \| null | No | Dashboard layout configuration. See `render-schema-authoring-guide.md`. |
 | `status` | string | Yes | `"active"` or `"inactive"`. Inactive types reject ingestion. |
-| `created_at` | int64 | Yes | Unix epoch seconds. |
-| `updated_at` | int64 | Yes | Unix epoch seconds. |
+| `created_at` | string | Yes | ISO 8601 strings (e.g., 2026-03-15T22:56:31Z) |
+| `updated_at` | string | Yes | ISO 8601 strings (e.g., 2026-03-15T22:56:31Z) |
 
 Skeleton:
 
@@ -101,8 +101,8 @@ Skeleton:
   "payload_schema": { },
   "render_schema": { },
   "status": "active",
-  "created_at": 1735689600,
-  "updated_at": 1735689600
+  "created_at": "2024-01-01T01:00:00Z",
+  "updated_at": "2024-01-01T01:00:00Z"
 }
 ```
 
@@ -592,8 +592,8 @@ db.verification_types.insertOne({
   payload_schema:   { /* §4 */ },
   render_schema:    { /* see render-schema-authoring-guide.md */ },
   status:           "active",
-  created_at:       Math.floor(Date.now() / 1000),
-  updated_at:       Math.floor(Date.now() / 1000)
+  created_at:       Date.now(),
+  updated_at:       Date.now()
 });
 ```
 
@@ -680,7 +680,7 @@ Use this when adding or updating a verification type.
 
 - [ ] `id`, `key`, `name`, `description` set
 - [ ] `status: "active"`
-- [ ] `created_at` and `updated_at` set to current epoch seconds
+- [ ] `created_at` and `updated_at` set to current date time in ISO 8601 strings (e.g., 2026-03-15T22:56:31Z)
 - [ ] Inserted into `verification_types` collection in the platform DB
 - [ ] Verified `GET /v1/verification-types/{key}` returns the new type
 
@@ -828,8 +828,8 @@ A compact end-to-end walkthrough using a small fictional verification type. For 
   },
 
   "status":     "active",
-  "created_at": 1735689600,
-  "updated_at": 1735689600
+  "created_at": "2024-01-01T01:00:00Z",
+  "updated_at": "2024-01-01T01:00:00Z"
 }
 ```
 

@@ -51,7 +51,7 @@ A handful of terms repeat across all three sub-documents. These are the ones you
 
 **Verification Type Authoring Guide** — covers everything that goes onto a `verification_type` document except the dashboard layout: payload schema, ingestion mode, GJSON path syntax, field mappings (with all five transforms — direct/constant/enum/match/round_clamp), property extractions, media extractions, registration, and a full end-to-end example. Read this when introducing a new verification type or restructuring an existing one.
 
-**Render Schema Authoring Guide** — covers the dashboard layout for a verification type: source path syntax (different from the backend's GJSON), field definitions, the format catalogue (image, pdf, location, percentage, status, etc.), groups and column layouts, card layouts with header/body/footer zones, nested fields, and common patterns. Read this when controlling what a verification looks like in the dashboard.
+**Render Schema Authoring Guide** — covers the dashboard layout for a verification type: source path syntax (different from the backend's GJSON), field definitions, the format catalogue (image, pdf, document, location, percentage, status, etc.), groups and column layouts, card layouts with header/body/footer zones, nested fields, and common patterns. Read this when controlling what a verification looks like in the dashboard.
 
 ---
 

@@ -126,6 +126,7 @@ Each entry in `render_schema.fields` is a `RenderFieldDefinition`.
 |--------|------------|------------|
 | `image` | string (URL) or array of strings | Clickable thumbnail with lightbox preview |
 | `pdf` | string (URL) or array of strings | Document icon card; click opens inline PDF viewer |
+| `document` | Polymorphic image-or-PDF: auto-dispatches between the image and PDF renderers based on URL extension and `MediaRef.content_type`. Use when the source can carry either kind (e.g., `doc_fraud.document.url`). | `hints.format: "document"` |
 | `location` | object with `latitude`/`longitude` | Static map thumbnail; click expands to full map |
 | `date` | string | Formatted date |
 | `date-time` | string | Formatted date and time |
@@ -817,7 +818,7 @@ This renders as (approximate):
 |---------|---------|-----|
 | GJSON syntax in `source` | Field shows nothing | Use the frontend syntax (`a.b`, `a[0].b`, `a[?k=v].b`). GJSON is for the backend only. |
 | Image field rendering as plain URL text | URL string in dashboard instead of thumbnail | Add `format: "image"`. There is no auto-detection by URL pattern or property name. |
-| PDF rendering as plain URL text | Same — text instead of icon card | Add `format: "pdf"`. |
+| PDF rendering as plain URL text | Same — text instead of thumbnail | Add `format: "pdf"`. |
 | Location not rendering as a map | Object dump in dashboard | Add `type: "object", format: "location"`. The source must resolve to an object with `latitude`/`longitude` (or compatible) properties. |
 | Custom group appears at the bottom alphabetically | Sections in unexpected order | Add a `group_layout` entry with an explicit `order` to interleave with well-known groups. |
 | Card layout zones empty in some payloads | Cards look blank or partial | Slots are silently skipped when source paths don't resolve. Either guarantee the source data, or accept the variation. |
